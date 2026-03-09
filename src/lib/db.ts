@@ -1,8 +1,7 @@
-import { PrismaClient } from '@generated/prisma';
+import { PrismaClient } from '@/generated/prisma';
 
 // PrismaClient is expensive to create, so we create a single instance and reuse it across the app.
 // This is especially important in development, where hot reloading can cause multiple instances to be created.
-let prisma: PrismaClient;
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
 const prisma = globalForPrisma.prisma || new PrismaClient();
