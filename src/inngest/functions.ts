@@ -24,6 +24,11 @@ export const execute = inngest.createFunction(
     model: google("gemini-2.5-flash"),
     system: "You are a helpful assistant that helps to generate text based on the user's query",
     prompt: "What is the capital of assyria?",
+    experimental_telemetry: {
+      isEnabled: true,
+      recordInputs: true,
+      recordOutputs: true,
+    },
    })
 
     const {steps: azureSteps} = await step.ai.wrap("azure-generate-text", 
@@ -32,6 +37,11 @@ export const execute = inngest.createFunction(
     model: azure("polsub-gpt"),
     system: "You are a helpful assistant that helps to generate text based on the user's query",
     prompt: "What is the capital of assyria?",
+    experimental_telemetry: {
+      isEnabled: true,
+      recordInputs: true,
+      recordOutputs: true,
+    },
    })
 
    const {steps: openaiSteps} = await step.ai.wrap("openai-generate-text", 
@@ -40,6 +50,11 @@ export const execute = inngest.createFunction(
     model: openai("gpt-3.5-turbo"),
     system: "You are a helpful assistant that helps to generate text based on the user's query",
     prompt: "What is the capital of assyria?",
+    experimental_telemetry: {
+      isEnabled: true,
+      recordInputs: true,
+      recordOutputs: true,
+    },
    })
 
    const {steps: anthropicSteps} = await step.ai.wrap("anthropic-generate-text", 
@@ -48,6 +63,11 @@ export const execute = inngest.createFunction(
     model: anthropic("claude-sonnet-4-5"),
     system: "You are a helpful assistant that helps to generate text based on the user's query",
     prompt: "What is the capital of assyria?",
+    experimental_telemetry: {
+      isEnabled: true,
+      recordInputs: true,
+      recordOutputs: true,
+    },
    })
 
 

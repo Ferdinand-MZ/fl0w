@@ -10,3 +10,9 @@ ERROR [portable_pty::win::psuedocon] CreateProcessW `"C:\\src\\node-v22.19.0-win
 ERROR [portable_pty::win::psuedocon] CreateProcessW `"C:\\src\\node-v22.19.0-win-x64\\npm run inngest:dev\0"` in cwd `Some("D:\\Visual Studio Code\\Project\\NextJS\\virgo\0")` failed: %1 is not a valid Win32 application. (os error 193)
 ERROR [portable_pty::win::psuedocon] CreateProcessW `"C:\\src\\node-v22.19.0-win-x64\\npm run inngest:dev\0"` in cwd `Some("D:\\Visual Studio Code\\Project\\NextJS\\virgo\0")` failed: %1 is not a valid Win32 application. (os error 193)
 ERROR [portable_pty::win::psuedocon] CreateProcessW `"C:\\src\\node-v22.19.0-win-x64\\npm run inngest:dev\0"` in cwd `Some("D:\\Visual Studio Code\\Project\\NextJS\\virgo\0")` failed: %1 is not a valid Win32 application. (os error 193)
+ERROR [lib::mprocs] Got panic. @info:panicked at src\vt100\screen.rs:457:10:
+called `Option::unwrap()` on a `None` value
+@stackTrace:disabled backtrace
+ERROR [lib::mprocs] Got panic. @info:panicked at src\vt100\screen.rs:457:10:
+called `Option::unwrap()` on a `None` value
+@stackTrace:disabled backtrace
