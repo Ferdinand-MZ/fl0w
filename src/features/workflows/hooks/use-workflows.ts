@@ -5,9 +5,10 @@ import { useQueryClient, useSuspenseQuery, useMutation } from "@tanstack/react-q
 import {toast} from "sonner";
 import { useWorkflowsParams } from "./use-workflows-params";
 
+// Hook untuk fetch workflows dengan suspense
 export const useSuspenseWorkflows = () => {
     const trpc = useTRPC();
-    const [params, setParams] = useWorkflowsParams(); 
+    const [params] = useWorkflowsParams(); 
 
     return useSuspenseQuery(trpc.workflows.getMany.queryOptions(params));
 };
@@ -50,4 +51,31 @@ export const useRemoveWorkflow = () => {
             }
         })
     );
-}
+};
+
+// Hook untuk fetch satu workflow dengan Suspense
+export const useSuspenseWorkflow = (id: string) => {
+    const trpc = useTRPC();
+    return useSuspenseQuery(trpc.workflows.getOne.queryOptions({id}));
+};
+
+// workflows hook untuk update nama workflow
+export const useUpdateWorkflowName = () => {
+    const queryClient = useQueryClient();
+    const trpc = useTRPC();
+
+    return useMutation(trpc.workflows.updateName.mutationOptions({
+        onSuccess: (data) => {
+            toast.success(`Workflow "${data.name}" updated` );
+            queryClient.invalidateQueries(
+                trpc.workflows.getMany.queryOptions({}),
+            );
+            queryClient.invalidateQueries(
+                trpc.workflows.getOne.queryOptions({ id: data.id}),
+            );
+        },
+        onError: (error) => {
+            toast.error(`Failed to update Workflow: ${error.message}`);
+        },
+    }));
+};
