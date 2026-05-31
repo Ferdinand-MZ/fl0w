@@ -19,7 +19,12 @@ Workflows can be triggered manually, by an incoming Stripe payment, a Google For
 
 ## System architecture
 
-![System Architecture](./system-architecture.png)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6d45279a-182b-451f-b6c2-5914db7981ad"
+       alt="fl0w_system_architecture"
+       width="700">
+</p>
+
 
 > *The diagram above shows how every layer communicates — from the browser through tRPC and Better Auth, down to Prisma/PostgreSQL and the Inngest background job runner, and out to AI providers and external services.*
 
